@@ -55,8 +55,13 @@
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.1",
     "node-sass": "^5.0.0",
+    "prettier": "^2.3.1",
     "redux-devtools": "^3.7.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
