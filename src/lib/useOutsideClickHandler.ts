@@ -1,15 +1,15 @@
-import { RefObject, useEffect } from 'react'
+import { useEffect } from 'react'
 
 export const useOutsideClickHandler = (
-  ref: RefObject<Element>,
+  targetEl: Element | null,
   handler: (event: Event) => void,
   capture: boolean = false
 ) => {
   useEffect(() => {
-    if (!ref.current) return
-    const el = ref.current
+    if (!targetEl) return
+
     const listener = (event: Event) => {
-      if (!(event.target instanceof Node && el.contains(event.target))) {
+      if (!(event.target instanceof Node && targetEl.contains(event.target))) {
         handler(event)
       }
     }
@@ -19,5 +19,5 @@ export const useOutsideClickHandler = (
     return () => {
       document.removeEventListener('click', listener, capture)
     }
-  }, [capture, handler, ref])
+  }, [capture, handler, targetEl])
 }

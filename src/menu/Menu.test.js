@@ -48,7 +48,16 @@ describe('<Menu />', () => {
   describe('Clicking outside', () => {
     it('should invoke requestClose() on clicking outside elements', () => {
       const requestClose = jest.fn()
-      const { getByRole } = render(
+      const { getByRole, rerender } = render(
+        <>
+          <button>hide</button>
+          <Menu open={false} requestClose={requestClose}>
+            <MenuItem>dummy menu item</MenuItem>
+          </Menu>
+        </>
+      )
+
+      rerender(
         <>
           <button>hide</button>
           <Menu open={true} requestClose={requestClose}>

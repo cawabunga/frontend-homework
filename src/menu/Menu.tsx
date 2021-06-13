@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useRef } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
 import { useOutsideClickHandler } from '../lib/useOutsideClickHandler'
 import { MenuProvider } from './MenuProvider'
 import css from './Menu.module.scss'
@@ -10,7 +10,7 @@ export interface MenuProps {
 }
 
 export const Menu = ({ open, requestClose, children }: MenuProps) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const [targetEl, setTargetEl] = useState<HTMLDivElement | null>(null)
 
   const handleOutsideClick = useCallback(
     (event: Event) => {
@@ -20,7 +20,7 @@ export const Menu = ({ open, requestClose, children }: MenuProps) => {
     [requestClose]
   )
 
-  useOutsideClickHandler(ref, handleOutsideClick, true)
+  useOutsideClickHandler(targetEl, handleOutsideClick, true)
 
   if (!open) {
     return null
@@ -28,7 +28,7 @@ export const Menu = ({ open, requestClose, children }: MenuProps) => {
 
   return (
     <MenuProvider requestClose={requestClose}>
-      <div role={'menu'} className={css.menu} ref={ref}>
+      <div role={'menu'} className={css.menu} ref={setTargetEl}>
         {children}
       </div>
     </MenuProvider>
