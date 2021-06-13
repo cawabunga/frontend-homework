@@ -2,6 +2,7 @@ import {
   getIsDropdownMenuVisible,
   isCompanySelected,
   getCompanies,
+  getSelectedCompany,
 } from './selectors'
 
 describe('getIsDropdownMenuVisible()', () => {
@@ -25,9 +26,27 @@ describe('isCompanySelected()', () => {
 })
 
 describe('getCompanies()', () => {
-  const state = { companies: [{ id:1, name: 'Dummy company' }] }
+  const state = { companies: [{ id: 1, name: 'Dummy company' }] }
 
   it('returns value from state', () => {
     expect(getCompanies(state)).toEqual([{ id: 1, name: 'Dummy company' }])
+  })
+})
+
+describe('getSelectedCompany()', () => {
+  const state = {
+    companies: [{ id: 1, name: 'Dummy company' }],
+    selectedCompanyId: null,
+  }
+
+  it('returns undefined in case no company is selected', () => {
+    expect(getSelectedCompany(state)).toBeUndefined()
+  })
+
+  it('return selected company', () => {
+    expect(getSelectedCompany({ ...state, selectedCompanyId: 1 })).toEqual({
+      id: 1,
+      name: 'Dummy company',
+    })
   })
 })

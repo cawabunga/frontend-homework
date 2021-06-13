@@ -3,9 +3,11 @@
 exports[`<DropdownLink /> renders with dropdown menu 1`] = `
 <Fragment>
   <div
+    aria-label="Profile settings"
     className="nav__link"
     data-test-nav-link={true}
     onClick={[MockFunction]}
+    role="button"
   >
     <div
       className="nav__link-text-wrapper"
@@ -34,9 +36,11 @@ exports[`<DropdownLink /> renders with dropdown menu 1`] = `
 exports[`<DropdownLink /> renders without dropdown menu 1`] = `
 <Fragment>
   <div
+    aria-label="Profile settings"
     className="nav__link"
     data-test-nav-link={true}
     onClick={[MockFunction]}
+    role="button"
   >
     <div
       className="nav__link-text-wrapper"

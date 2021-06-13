@@ -8,3 +8,7 @@ export const isCompanySelected = (state: ReduxState, props: { company: Company }
 
 export const getCompanies = (state: ReduxState) =>
   state.companies
+
+export const getSelectedCompany = (state: ReduxState): Company | undefined => {
+    return state.selectedCompanyId == null ? undefined : state.companies.find((company) => company.id === state.selectedCompanyId);
+};
