@@ -40,7 +40,10 @@ export const DropdownLink = ({
       <i className="material-icons-outlined nav__link-icon">settings</i>
     </div>
 
-    <DropdownMenu open={isDropdownMenuVisible} />
+    <DropdownMenu
+      open={isDropdownMenuVisible}
+      requestClose={toggleDropdownMenuVisibility}
+    />
   </>
 )
 

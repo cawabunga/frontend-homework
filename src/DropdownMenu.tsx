@@ -1,30 +1,44 @@
 import MenuLink from './MenuLink'
 import Companies from './Companies'
+import { MenuItem } from './menu/MenuItem'
+import { Menu } from './menu/Menu'
 
 type Props = {
   open: boolean
+  requestClose: () => void
 }
 
-const DropdownMenu = ({ open }: Props) => {
+const DropdownMenu = ({ open, requestClose }: Props) => {
   if (!open) {
     return null
   }
 
   return (
-    <div>
+    <Menu open={open} requestClose={requestClose}>
       <Companies />
 
       <div>
-        <MenuLink text="Get the mobile app" icon="phone_iphone" />
-        <MenuLink text="Community" icon="people" />
-        <MenuLink text="Knowledge base" icon="book" />
+        <MenuItem>
+          <MenuLink text="Get the mobile app" icon="phone_iphone" />
+        </MenuItem>
+        <MenuItem>
+          <MenuLink text="Community" icon="people" />
+        </MenuItem>
+        <MenuItem>
+          <MenuLink text="Knowledge base" icon="book" />
+        </MenuItem>
       </div>
 
       <div>
-        <MenuLink text="Settings" icon="settings" />
-        <MenuLink text="Log out" icon="exit_to_app" />
+        <MenuItem>
+          <MenuLink text="Settings" icon="settings" />
+        </MenuItem>
+
+        <MenuItem>
+          <MenuLink text="Log out" icon="exit_to_app" />
+        </MenuItem>
       </div>
-    </div>
+    </Menu>
   )
 }
 

@@ -29,7 +29,10 @@ exports[`<DropdownLink /> renders with dropdown menu 1`] = `
       settings
     </i>
   </div>
-  <DropdownMenu />
+  <DropdownMenu
+    open={true}
+    requestClose={[MockFunction]}
+  />
 </Fragment>
 `;
 
@@ -62,5 +65,9 @@ exports[`<DropdownLink /> renders without dropdown menu 1`] = `
       settings
     </i>
   </div>
+  <DropdownMenu
+    open={false}
+    requestClose={[MockFunction]}
+  />
 </Fragment>
 `;
