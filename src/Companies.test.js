@@ -2,6 +2,9 @@ import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import { Companies } from './Companies'
+import { useId } from './lib/useId'
+
+jest.mock('./lib/useId')
 
 describe('<Companies />', () => {
   const companies = [
@@ -10,6 +13,7 @@ describe('<Companies />', () => {
   ]
 
   it('renders list of company links', () => {
+    useId.mockReturnValue('id')
     expect(shallow(<Companies companies={companies} />)).toMatchSnapshot()
   })
 

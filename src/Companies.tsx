@@ -8,6 +8,7 @@ import { setSelectedCompanyId } from './actions'
 import CompanyLink from './CompanyLink'
 import { MenuList } from './menu/MenuList'
 import css from './Companies.module.scss'
+import { useId } from './lib/useId'
 
 type ReduxProps = {
   companies: Array<Company>
@@ -22,24 +23,28 @@ export const Companies = ({
   companies,
   selectedCompanyId,
   setSelectedCompanyId,
-}: ReduxProps & DispatchProps) => (
-  <>
-    <div className={css.heading} aria-owns={'companies'}>
-      Your companies
-    </div>
+}: ReduxProps & DispatchProps) => {
+  const id = useId()
 
-    <MenuList spacing={0} id={'companies'}>
-      {companies.map((company) => (
-        <CompanyLink
-          key={company.id}
-          company={company}
-          onClick={() => setSelectedCompanyId(company.id)}
-          isActive={company.id === selectedCompanyId}
-        />
-      ))}
-    </MenuList>
-  </>
-)
+  return (
+    <>
+      <div className={css.heading} aria-owns={id}>
+        Your companies
+      </div>
+
+      <MenuList spacing={0} id={id}>
+        {companies.map((company) => (
+          <CompanyLink
+            key={company.id}
+            company={company}
+            onClick={() => setSelectedCompanyId(company.id)}
+            isActive={company.id === selectedCompanyId}
+          />
+        ))}
+      </MenuList>
+    </>
+  )
+}
 
 export default connect(
   createStructuredSelector<ReduxState, ReduxProps>({

@@ -3,13 +3,13 @@
 exports[`<Companies /> renders list of company links 1`] = `
 <Fragment>
   <div
-    aria-owns="companies"
+    aria-owns="id"
     className="heading"
   >
     Your companies
   </div>
   <MenuList
-    id="companies"
+    id="id"
     spacing={0}
   >
     <CompanyLink
