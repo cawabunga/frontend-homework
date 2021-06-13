@@ -2,11 +2,11 @@ import { Company } from './types'
 
 type Props = {
   company: Company
-  onPress: () => void
+  onClick: () => void
 }
 
-const CompanyLink = ({ company, onPress }: Props) => (
-  <button type={'button'} onClick={onPress}>
+const CompanyLink = ({ company, onClick }: Props) => (
+  <button type={'button'} onClick={onClick}>
     {company.name}
   </button>
 )

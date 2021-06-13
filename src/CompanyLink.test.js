@@ -10,13 +10,13 @@ describe('<CompanyLink />', () => {
     expect(() => getByRole('button', { name: 'Dummy company' })).not.toThrow()
   })
 
-  it('invokes onPress callback on click', () => {
-    const onPress = jest.fn()
+  it('invokes onClick callback on click', () => {
+    const onClick = jest.fn()
     const { getByRole } = render(
-      <CompanyLink company={company} onPress={onPress} />
+      <CompanyLink company={company} onClick={onClick} />
     )
-    expect(onPress).not.toHaveBeenCalled()
+    expect(onClick).not.toHaveBeenCalled()
     userEvent.click(getByRole('button'))
-    expect(onPress).toHaveBeenCalled()
+    expect(onClick).toHaveBeenCalled()
   })
 })

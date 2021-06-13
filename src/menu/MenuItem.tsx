@@ -1,12 +1,19 @@
-import { ReactNode, useCallback } from 'react'
+import { ReactElement, ReactNode, useCallback } from 'react'
 import { useMenuItemDefaultHandler } from './hooks'
+
+export interface MenuItemRenderProps {
+  onClick: () => void
+  children?: ReactNode
+}
 
 export const MenuItem = ({
   children,
   onClick,
+  render,
 }: {
-  children: ReactNode
+  children?: ReactNode
   onClick: () => void
+  render: (props: MenuItemRenderProps) => ReactElement
 }) => {
   const defaultHandler = useMenuItemDefaultHandler()
 
@@ -15,13 +22,12 @@ export const MenuItem = ({
     onClick()
   }, [defaultHandler, onClick])
 
-  return (
-    <button type={'button'} onClick={handleClick}>
-      {children}
-    </button>
-  )
+  return render({ onClick: handleClick, children })
 }
 
 MenuItem.defaultProps = {
   onClick: () => {},
+  render: (props: MenuItemRenderProps) => (
+    <button type={'button'} role={'menuitem'} {...props} />
+  ),
 }

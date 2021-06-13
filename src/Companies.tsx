@@ -6,6 +6,7 @@ import { getCompanies } from './selectors'
 import { setSelectedCompanyId } from './actions'
 
 import CompanyLink from './CompanyLink'
+import { MenuItem } from './menu/MenuItem'
 
 type ReduxProps = {
   companies: Array<Company>
@@ -23,10 +24,10 @@ export const Companies = ({
     <div>Your companies</div>
 
     {companies.map((company) => (
-      <CompanyLink
+      <MenuItem
         key={company.id}
-        company={company}
-        onPress={() => setSelectedCompanyId(company.id)}
+        onClick={() => setSelectedCompanyId(company.id)}
+        render={(props) => <CompanyLink company={company} {...props} />}
       />
     ))}
   </>

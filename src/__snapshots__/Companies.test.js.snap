@@ -5,15 +5,15 @@ exports[`<Companies /> renders list of company links 1`] = `
   <div>
     Your companies
   </div>
-  <CompanyLink
-    id={1}
+  <MenuItem
     key="1"
-    name="Dummy company"
+    onClick={[Function]}
+    render={[Function]}
   />
-  <CompanyLink
-    id={2}
+  <MenuItem
     key="2"
-    name="Smarty company"
+    onClick={[Function]}
+    render={[Function]}
   />
 </Fragment>
 `;

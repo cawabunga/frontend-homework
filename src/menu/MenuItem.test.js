@@ -35,4 +35,12 @@ describe('<MenuItem />', () => {
     userEvent.click(getByRole('button'))
     expect(defaultHandlerMock).toHaveBeenCalled()
   })
+
+  describe('with custom renderer', () => {
+    it('allows to substitute render function', () => {
+      const customRenderer = () => <>bar</>
+      const { getByText } = render(<MenuItem render={customRenderer} />)
+      expect(() => getByText('bar')).not.toThrow()
+    })
+  })
 })
