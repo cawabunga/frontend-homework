@@ -1,0 +1,26 @@
+@import './stylesheets/variables/colors';
+
+.menuItem {
+  display: flex;
+  height: 44px;
+}
+
+.active {
+  background: rgba($green, 0.1);
+  color: $dark-green;
+
+  &:focus,
+  &:hover {
+    background: rgba($green, 0.2);
+  }
+}
+
+.label {
+  flex: 1;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.check {
+  font-size: 20px;
+}

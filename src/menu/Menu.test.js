@@ -4,6 +4,11 @@ import { MenuItem } from './MenuItem'
 import userEvent from '@testing-library/user-event'
 
 describe('<Menu />', () => {
+  it('should not render menu if it is closed', () => {
+    const { getByRole } = render(<Menu open={false} requestClose={() => {}} />)
+    expect(() => getByRole('menu')).toThrow()
+  })
+
   it('renders menu', () => {
     const { getByRole } = render(<Menu open={true} requestClose={() => {}} />)
     expect(() => getByRole('menu')).not.toThrow()

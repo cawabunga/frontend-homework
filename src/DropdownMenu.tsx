@@ -1,7 +1,9 @@
 import MenuLink from './MenuLink'
 import Companies from './Companies'
-import { MenuItem } from './menu/MenuItem'
 import { Menu } from './menu/Menu'
+import { MenuDivider } from './menu/MenuDivider'
+import { ExitMenuLink } from './ExitMenuLink'
+import { MenuList } from './menu/MenuList'
 
 type Props = {
   open: boolean
@@ -17,27 +19,20 @@ const DropdownMenu = ({ open, requestClose }: Props) => {
     <Menu open={open} requestClose={requestClose}>
       <Companies />
 
-      <div>
-        <MenuItem>
-          <MenuLink text="Get the mobile app" icon="phone_iphone" />
-        </MenuItem>
-        <MenuItem>
-          <MenuLink text="Community" icon="people" />
-        </MenuItem>
-        <MenuItem>
-          <MenuLink text="Knowledge base" icon="book" />
-        </MenuItem>
-      </div>
+      <MenuDivider />
 
-      <div>
-        <MenuItem>
-          <MenuLink text="Settings" icon="settings" />
-        </MenuItem>
+      <MenuList spacing={1}>
+        <MenuLink text="Get the mobile app" icon="phone_iphone" />
+        <MenuLink text="Community" icon="people" />
+        <MenuLink text="Knowledge base" icon="book" />
+      </MenuList>
 
-        <MenuItem>
-          <MenuLink text="Log out" icon="exit_to_app" />
-        </MenuItem>
-      </div>
+      <MenuDivider />
+
+      <MenuList spacing={1}>
+        <MenuLink text="Settings" icon="settings" />
+        <ExitMenuLink />
+      </MenuList>
     </Menu>
   )
 }

@@ -5,9 +5,9 @@ import CompanyLink from './CompanyLink'
 describe('<CompanyLink />', () => {
   const company = { id: 1, name: 'Dummy company' }
 
-  it(`renders company's name as button`, () => {
+  it(`renders company's name as menu item`, () => {
     const { getByRole } = render(<CompanyLink company={company} />)
-    expect(() => getByRole('button', { name: 'Dummy company' })).not.toThrow()
+    expect(() => getByRole('menuitem', { name: 'Dummy company' })).not.toThrow()
   })
 
   it('invokes onClick callback on click', () => {
@@ -16,7 +16,7 @@ describe('<CompanyLink />', () => {
       <CompanyLink company={company} onClick={onClick} />
     )
     expect(onClick).not.toHaveBeenCalled()
-    userEvent.click(getByRole('button'))
+    userEvent.click(getByRole('menuitem'))
     expect(onClick).toHaveBeenCalled()
   })
 })

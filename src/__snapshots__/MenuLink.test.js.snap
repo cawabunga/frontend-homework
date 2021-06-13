@@ -1,12 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MenuLink /> renders link 1`] = `
-<div>
+<MenuItem
+  aria-label="Call me"
+  className="menuLink"
+  onClick={[Function]}
+  render={[Function]}
+>
   <i
-    className="material-icons"
+    className="material-icons icon"
   >
     phone
   </i>
-  Call me
-</div>
+  <span
+    className="label"
+  >
+    Call me
+  </span>
+</MenuItem>
 `;

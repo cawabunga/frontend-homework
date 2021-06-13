@@ -1,0 +1,14 @@
+@import './stylesheets/variables/colors';
+
+.companies {
+}
+
+.heading {
+  color: $grey-6;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  padding: 0 16px;
+  margin: 8px 0 4px;
+}

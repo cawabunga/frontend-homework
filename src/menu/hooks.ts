@@ -1,7 +1,13 @@
-import { useContext } from 'react'
+import { useCallback, useContext } from 'react'
 import { MenuContext } from './MenuContext'
 
-export const useMenuItemDefaultHandler = () => {
+export const useMenuItem = ({ onClick }: { onClick: () => void }) => {
   const { requestClose } = useContext(MenuContext)
-  return requestClose
+
+  const handleClick = useCallback(() => {
+    requestClose()
+    onClick()
+  }, [requestClose, onClick])
+
+  return { onClick: handleClick }
 }

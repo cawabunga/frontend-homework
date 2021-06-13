@@ -3,6 +3,7 @@ import {
   isCompanySelected,
   getCompanies,
   getSelectedCompany,
+  getSelectedCompanyId,
 } from './selectors'
 
 describe('getIsDropdownMenuVisible()', () => {
@@ -48,5 +49,13 @@ describe('getSelectedCompany()', () => {
       id: 1,
       name: 'Dummy company',
     })
+  })
+})
+
+describe('getSelectedCompanyId()', () => {
+  const state = { selectedCompanyId: 3 }
+
+  it('returns value from state', () => {
+    expect(getSelectedCompanyId(state)).toBe(3)
   })
 })

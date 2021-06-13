@@ -1,16 +1,30 @@
+import { MenuItem } from './menu/MenuItem'
+import { classNames } from './lib/classNames'
+import css from './MenuLink.module.scss'
+
 type Props = {
-  text: string,
-  icon: string,
+  text: string
+  icon: string
+  onClick: () => void
+  className?: string
 }
 
-const MenuLink = ({ icon, text }: Props) => (
-  <div>
-    <i className="material-icons">
-      {icon}
-    </i>
+const MenuLink = ({ icon, text, onClick, className }: Props) => {
+  return (
+    <MenuItem
+      onClick={onClick}
+      aria-label={text}
+      className={classNames(css.menuLink, className)}
+    >
+      <i className={classNames('material-icons', css.icon)}>{icon}</i>
 
-    {text}
-  </div>
-)
+      <span className={css.label}>{text}</span>
+    </MenuItem>
+  )
+}
+
+MenuLink.defaultProps = {
+  onClick: () => {},
+}
 
 export default MenuLink
