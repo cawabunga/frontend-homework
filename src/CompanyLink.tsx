@@ -14,6 +14,7 @@ const CompanyLink = ({ company, onClick, isActive }: Props) => {
     <MenuItem
       onClick={onClick}
       aria-label={company.name}
+      aria-current={isActive}
       className={classNames(css.menuItem, isActive ? css.active : null)}
     >
       <div className={css.label}>{company.name}</div>

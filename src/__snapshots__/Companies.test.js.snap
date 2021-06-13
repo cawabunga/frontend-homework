@@ -26,12 +26,12 @@ exports[`<Companies /> renders list of company links 1`] = `
     <CompanyLink
       company={
         Object {
-          "id": 2,
+          "id": 3,
           "name": "Smarty company",
         }
       }
       isActive={false}
-      key="2"
+      key="3"
       onClick={[Function]}
     />
   </MenuList>
