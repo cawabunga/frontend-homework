@@ -1,22 +1,15 @@
 import MenuLink from './MenuLink'
 import Companies from './Companies'
-import { Menu } from './menu/Menu'
+import { Menu, MenuProps } from './menu/Menu'
 import { MenuDivider } from './menu/MenuDivider'
 import { ExitMenuLink } from './ExitMenuLink'
 import { MenuList } from './menu/MenuList'
 
-type Props = {
-  open: boolean
-  requestClose: () => void
-}
+interface DropdownMenuProps extends Omit<MenuProps, 'children'> {}
 
-const DropdownMenu = ({ open, requestClose }: Props) => {
-  if (!open) {
-    return null
-  }
-
+export const DropdownMenu = (props: DropdownMenuProps) => {
   return (
-    <Menu open={open} requestClose={requestClose}>
+    <Menu {...props}>
       <Companies />
 
       <MenuDivider />
@@ -36,5 +29,3 @@ const DropdownMenu = ({ open, requestClose }: Props) => {
     </Menu>
   )
 }
-
-export default DropdownMenu

@@ -3,7 +3,7 @@ import { useOutsideClickHandler } from '../lib/useOutsideClickHandler'
 import { MenuProvider } from './MenuProvider'
 import css from './Menu.module.scss'
 
-interface MenuProps {
+export interface MenuProps {
   open: boolean
   requestClose: () => void
   children: ReactNode

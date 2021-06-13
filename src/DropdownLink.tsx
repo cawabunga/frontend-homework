@@ -5,7 +5,7 @@ import { Company, ReduxState } from './types'
 import { getIsDropdownMenuVisible, getSelectedCompany } from './selectors'
 import { toggleDropdownMenuVisibility } from './actions'
 
-import DropdownMenu from './DropdownMenu'
+import { DropdownMenu } from './DropdownMenu'
 
 type ReduxProps = {
   isDropdownMenuVisible: boolean

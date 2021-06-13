@@ -7,8 +7,8 @@ import { setSelectedCompanyId } from './actions'
 
 import CompanyLink from './CompanyLink'
 import { MenuList } from './menu/MenuList'
-import css from './Companies.module.scss'
 import { useId } from './lib/useId'
+import css from './Companies.module.scss'
 
 type ReduxProps = {
   companies: Array<Company>
