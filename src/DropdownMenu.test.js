@@ -3,6 +3,6 @@ import DropdownMenu from './DropdownMenu'
 
 describe('<DropdownMenu />', () => {
   it('renders menu', () => {
-    expect(shallow(<DropdownMenu />)).toMatchSnapshot()
+    expect(shallow(<DropdownMenu open={true} />)).toMatchSnapshot()
   })
 })
